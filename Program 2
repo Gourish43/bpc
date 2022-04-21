@@ -1,0 +1,65 @@
+//Unary Operator Overloading
+
+#include <iostream>
+using namespace std;
+
+class Square_Box
+{
+   private:
+    float length;
+    float width;
+    float height;
+
+   public:
+    Square_Box() {}
+    Square_Box(float l, float w, float h)
+    {
+        length = l;
+        width = w;
+        height = h;
+    }
+
+    // Operator Overloading  - "++" prefix operator
+    void operator ++ ()
+    {
+        length++;
+        width++;
+        height++;
+    }
+
+    // Operator Overloading  - "++" postfix operator
+    void operator ++ (int)
+    {
+        length++;
+        width++;
+        height++;
+    }
+
+    void output()
+    {
+        cout << "\tLength = " << length << endl;
+        cout << "\tWidth = " << width << endl;
+        cout << "\tHeight = " << height << endl;
+        cout << endl;
+    }
+};
+
+int main()
+{
+    Square_Box mySquare_Box1(3.0, 5.0, 6.0);
+
+    cout << "Dimensions of mySquare_Box1 = " << endl;
+    mySquare_Box1.output();
+   
+    mySquare_Box1++;
+   
+    cout << "Dimensions of mySquare_Box1 = " << endl;
+    mySquare_Box1.output();
+   
+    ++mySquare_Box1;
+   
+    cout << "Dimensions of mySquare_Box1 = " << endl;
+    mySquare_Box1.output();    
+
+    return 0;
+}
