@@ -1,0 +1,57 @@
+//Binary Operator Overloading
+
+#include <iostream>
+using namespace std;
+
+class Square_Box
+{
+   private:
+    float length;
+    float width;
+    float height;
+
+   public:
+    Square_Box() {}
+    Square_Box(float l, float w, float h)
+    {
+        length = l;
+        width = w;
+        height = h;
+    }
+
+    // Operator Overloading  - "+" operator
+    Square_Box operator + (const Square_Box& obj)
+    {
+        Square_Box temp;
+        temp.length = length + obj.length;
+        temp.width = width + obj.width;
+        temp.height = height + obj.height;
+        return temp;
+    }
+
+    void output()
+    {
+        cout << "\tLength = " << length << endl;
+        cout << "\tWidth = " << width << endl;
+        cout << "\tHeight = " << height << endl;
+        cout << endl;
+    }
+};
+
+int main()
+{
+    Square_Box mySquare_Box1(3.0, 5.0, 6.0), mySquare_Box2(2.0, 3.0, 5.0), result;
+
+    cout << "Dimensions of mySquare_Box1 = " << endl;
+    mySquare_Box1.output();
+
+    cout << "Dimensions of mySquare_Box2 = " << endl;
+    mySquare_Box2.output();
+   
+    result = mySquare_Box1 + mySquare_Box2;
+   
+    cout << "Dimensions of resultant square box = " << endl;
+    result.output();
+
+    return 0;
+}
