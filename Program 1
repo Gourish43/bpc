@@ -1,0 +1,45 @@
+//Assignment operator overloading
+
+#include <iostream>
+using namespace std;
+
+class Complex
+{
+private:
+    double real;
+    double imag;
+
+public:
+    // constructors
+    Complex()
+    {
+        real = imag = 0.0;
+    }
+
+    Complex(double _real, double _imag)
+    {
+        real = _real;
+        imag = _imag;
+    }
+
+    // access methods
+    void GetComplex(double& _real, double& _imag)
+    {
+        _real = real;
+        _imag = imag;
+    }
+
+    void SetComplex(double _real, double _imag)
+    {
+        real = _real;
+        imag = _imag;
+    }
+
+    // overloaded operator '='
+    Complex operator=(Complex cm)
+    {
+        real = cm.real;
+        imag = cm.imag;
+        return *this; // returns the object that generated the call
+    }
+};
